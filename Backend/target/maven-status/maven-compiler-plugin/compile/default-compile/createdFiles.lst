@@ -1,0 +1,6 @@
+com\niit\Backend\config\ApplicationContextConfig.class
+com\niit\Backend\DAO\CategoryDAOImpl.class
+com\niit\Backend\App.class
+com\niit\Backend\DAO\CategoryDAO.class
+com\niit\Backend\model\Supplier.class
+com\niit\Backend\model\Category.class
