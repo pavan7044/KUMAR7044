@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>TVS SUPER XL</title>
+</head>
+
+<body bgcolor="aqua"><center>
+<h1 style="color:red;font-family:Cooper Black">TVS SUPER XL</h1>
+<img src="resources/images/superxl/XL2.jpg" width="500" height="350"></img></center>
+<h1 style="color:green";>Full Technical Specifications of TVS XL Super HD </h1>
+<h2><dd style="color:black;font-family:Times New Roman">
+<video src="resources/images/videos/xlvideo.mp4" controls width="600" height="300" style="float:right" ></video>
+<li>Displacement	69.9cc</li>
+<li>Engine	2 Stroke</li>
+<li>69.9cc Single Cylinder engine</li>
+<li>Max power	3.5 Bhp at 5000 rpm</li>
+<li>Max torque	5.0 Nm at 3750 rpm</li>
+<li>Mileage	55 to 60 kmpl (expected)</li>
+
+<li>Torque of 5.0 Nm at 3750 rpm</li>
+<li>55 to 60kmpl mileage</li>
+<li>Drum brakes in front and rear</li>	
+<li>50W Electronic ignition</li>
+</dd></h2>
+
+</body>
+</html>
