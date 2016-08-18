@@ -1,19 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@includefile ="header.jsp"%>
+<style>
+html
+{
+background-color:"aqua";
+}</style>
 
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>TVS SUPER XL</title>
-</head>
-
-<body bgcolor="aqua"><center>
+<center>
 <h1 style="color:red;font-family:Cooper Black">TVS SUPER XL</h1>
-<img src="resources/images/superxl/XL2.jpg" width="500" height="350"></img></center>
+<img src="resources/images/superxl/x5.png" width="500" height="350"></img></center>
 <h1 style="color:green";>Full Technical Specifications of TVS XL Super HD </h1>
 <h2><dd style="color:black;font-family:Times New Roman">
-<video src="resources/images/videos/xlvideo.mp4" controls width="600" height="300" style="float:right" ></video>
+<video src="resources/images/videos/xl.mp4" controls width="600" height="250"style="float:right" ></video>
 <li>Displacement	69.9cc</li>
 <li>Engine	2 Stroke</li>
 <li>69.9cc Single Cylinder engine</li>
@@ -27,5 +24,4 @@
 <li>50W Electronic ignition</li>
 </dd></h2>
 
-</body>
-</html>
+<%@includefile ="footer.jsp"%>

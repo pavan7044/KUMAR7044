@@ -1,19 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@includefile ="header.jsp"%>
 
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>TVS ZEST</title>
-</head>
-<body BGCOLOR="DarkOrange">
+
 <center>
 <h1 style="color:blue;font-family:Cooper Black">TVS ZEST</h1>
 <img src="resources/images/zzest/zzeesstt.jpg" width="1300" height="350">
 </center>
 <h1 style="color:darkgreen";>Full Technical Specifications of TVS ZEST</h1>
-<h3 style="color:green"><dd><video src="resources/images/videos/zestvideo.mp4" controls width="600" height="300" style="float:right" ></video>
+<h3 style="color:green"><dd><video src="resources/images/videos/zest.mp4" controls width="600" height="300" style="float:right" ></video>
 
 
 <li>Engine Displacement	109.70 cc</li>
@@ -33,5 +26,4 @@
 
 
 </dd></h3>
-</body>
-</html>
+<%@includefile ="footer.jsp"%>

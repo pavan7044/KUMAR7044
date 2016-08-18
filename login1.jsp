@@ -1,39 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@includefile ="header.jsp"%>
 
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>PAVAN MOTORS</title>
-</head>
-<body bgcolor="blue">
-<HR>
-<img src="resources/images/logo/logo11.jpg" alt="TVS" class="img-rounded" width="250" height="150" style="float:left">
-<img src="resources/images/logo/8888.jpg" alt="TVS" class="img-rounded" width="300" height="100" style="float:right">
-<CENTER>
-<CENTER>
-<CENTER>
-<h1 style="color:red;font-family:arial">WELCOME TO PAVAN MOTORS</h1>
-</CENTER><HR>
+
+
 
 <form action="LCont" method="post">
-
-<table>
+<br><br>
+<table cellspacing="30" > 
 <tr>
+<td><h4 style="font-weight:bold";>
+USER ID:</h4></td><td><input type="text" name="userId" ></td></tr>
+<tr><td><h4 style="font-weight:bold";>
+PASSWORD :</h4></td><td><input type="password" name="password"></td><br><br></tr><tr>
 <td>
-USER ID:<input type="text" name="userId" ></td>
+<a href="#">
+<input type="submit" value="submit"></a></td>
 <td>
-PASSWORD :<input type="password" name="password"><BR></td>
-<td>
-<input type="submit" value="Go"><br>
+<input type="reset" value="reset"/>
 </td></tr></table>
-</form></CENTER>
 
-<center>
-<img src="resources/images/logo/gif.gif" width="1450" height="700"></img>
-</center>
-</body>
+</form>
+<style>
+body
 
-</body>
-</html>
+ {
+    background-image:url(resources/images/logo/logozz.jpg);
+    width: "1450";
+     height: "700";
+    background-size:cover;
+    
+}
+</style>
+<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<%@includefile ="footer.jsp"%>
