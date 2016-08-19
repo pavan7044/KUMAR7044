@@ -22,7 +22,20 @@ public class HomeController {
 		ModelAndView pr= new ModelAndView("Tvscaursol");
 		return pr;
 	}
+
+	@RequestMapping("/viewproducts")
+	public ModelAndView pavankumar(){
+		System.out.println("\nController - / ");
+		ModelAndView prj= new ModelAndView("viewproducts");
+		return prj;
+	}
 	
+	@RequestMapping("/login1")
+	public ModelAndView pavankumar96(){
+		System.out.println("\nController - / ");
+		ModelAndView prsj= new ModelAndView("login1");
+		return prsj;
+	}
 	
 
 }

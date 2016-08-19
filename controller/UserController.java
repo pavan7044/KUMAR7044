@@ -38,7 +38,7 @@ public class UserController {
     {	
 		if(bindingResult.hasErrors())
 		{
-			return new ModelAndView("RegisterPage");
+			return new ModelAndView("register");
 		}
 		System.out.println("in register controller");
 		userservice.saveOrUpdate(user);

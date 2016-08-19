@@ -31,7 +31,7 @@ public class User {
 	private String uemail;
 	
 	
-	private long uphonenumber;
+	private String uphonenumber;
     
 	
 	
@@ -83,13 +83,14 @@ public class User {
 	public void setUemail(String uemail) {
 		this.uemail = uemail;
 	}
-	public long getUphonenumber() {
+
+	
+	public String getUphonenumber() {
 		return uphonenumber;
 	}
-	public void setUphonenumber(long uphonenumber) {
+	public void setUphonenumber(String uphonenumber) {
 		this.uphonenumber = uphonenumber;
 	}
-	
 	public boolean isEnabled() {
 		return isEnabled;
 	}
