@@ -1,17 +1,19 @@
-package pavanmotor.DAO;
+package com.niit.dao;
 
 import java.util.List;
 
-import pavanmotor.Model.Product;
-
-
+import com.niit.model.Product;
 
 public interface ProductDAO {
-	public List<Product> list();
-	public Product get(int id);
+	
+	
 	
 	public void saveOrUpdate(Product product);
-	
-	public void delete (int id);
+	 
+	public Product get(int ptid);
+	public Product getProductByName(String name) ;
+
+	public void delete(int ptid) ;
+	public List<Product> list();
 
 }

@@ -22,7 +22,7 @@
         <li><a href="contact">Contactus</a></li>
         <li><a href="aboutus">Aboutus</a></li>
         
-
+        <li><a href="viewproducts">Products</a></li>
         
           <li>
         </ul>
@@ -30,13 +30,7 @@
    
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="login1"><span class="glyphicon glyphicon-log-in"></span> login</a></li>
+      <li><a href="logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
     </ul>
   </div>
 </nav>
-
-
-
-
-

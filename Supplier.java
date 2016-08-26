@@ -1,4 +1,4 @@
-package pavanmotor.Model;
+package com.niit.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,53 +7,57 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
-
 @Entity
-@Component
 @Table
+@Component
+
 
 public class Supplier {
-	private int id;
-	private String name;
-	private String address;
-	private String phoneno;
-	private String mailid;
 
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int spid;
 
+	private String spname;
+	private String spaddress;
+	private String sphno;
+	private String semail;
+	public int getSpid() {
+		return spid;
+	}
+	public void setSpid(int spid) {
+		this.spid = spid;
+	}
+	public String getSpname() {
+		return spname;
+	}
+	public void setSpname(String spname) {
+		this.spname = spname;
+	}
+	public String getSpaddress() {
+		return spaddress;
+	}
+	public void setSpaddress(String spaddress) {
+		this.spaddress = spaddress;
+	}
+	public String getSphno() {
+		return sphno;
+	}
+	public void setSphno(String sphno) {
+		this.sphno = sphno;
+	}
+	public String getSemail() {
+		return semail;
+	}
+	public void setSemail(String semail) {
+		this.semail = semail;
+	}
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getPhoneno() {
-		return phoneno;
-	}
-	public void setPhoneno(String phoneno) {
-		this.phoneno = phoneno;
-	}
-	public String getMailid() {
-		return mailid;
-	}
-	public void setMailid(String mailid) {
-		this.mailid = mailid;
-	}
 	
-
+	
+	
+	
+	
+	
 }

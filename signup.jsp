@@ -21,13 +21,13 @@ body
 
 <tr><td>
 <h3 style="font-weight:bold";>First Name</h3></td><td>
-<input type="next" name="firstname" placeholder="enter name in caps" reuired/></td></tr>
+<input type="text" name="firstname" placeholder="enter name in caps" reuired/></td></tr>
 <tr><td>
 <h3 style="font-weight:bold";>Last Name</h3></td><td>
-<input type="next" name="lastname" placeholder="enter name in caps" /></td></tr>
+<input type="text" name="lastname" placeholder="enter name in caps" /></td></tr>
 <tr><td>
 <h3 style="font-weight:bold";>User Name</h3></td><td>
-<input type="next" name="username" placeholder="enter name in caps" reuired/></td></tr><tr><td><br>
+<input type="text" name="username" placeholder="enter name in caps" reuired/></td></tr><tr><td><br>
 <tr><td><h3 style="font-weight:bold"; >Password</h3></td><td>
 <input type="password" name="password" required/></td></tr><br>
 <tr><br>

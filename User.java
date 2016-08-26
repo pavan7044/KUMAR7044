@@ -1,48 +1,59 @@
-package pavanmotor.Model;
+package com.niit.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
-
 @Entity
 @Component
 @Table
 public class User {
 	
-	private int id;
-	private String firstname;
-	private String lastname;
-	private String username;
-	private String dob;
-	private String email;
-	private String password;
-	private String phonenumber;
-	//private boolean isAdimn;
 	
+		@Id	
+		@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int uid;
+		@NotEmpty(message="first name cannot be empty")
+    private String ufirstname;
+		@NotEmpty(message="last name cannot be empty")
+	private String ulastname;
+		@NotEmpty(message="username cannot be empty")
+	private String username;
+		@NotEmpty(message="password cannot be empty")
+	private String upassword;
+		@NotEmpty(message="confirm password cannot be empty")
+	transient private String uconfirmpassword;
+		@NotEmpty(message="Email cannot be empty")
+	private String uemail;
+	
+		@NotEmpty(message="phone number cannot be empty")
+	private String uphonenumber;
+    
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public int getId() {
-		return id;
+    @Column(name="enabled")
+    private boolean isEnabled;
+	public int getUid() {
+		return uid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setUid(int uid) {
+		this.uid = uid;
 	}
-	public String getFirstname() {
-		return firstname;
+	public String getUfirstname() {
+		return ufirstname;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setUfirstname(String ufirstname) {
+		this.ufirstname = ufirstname;
 	}
-	public String getLastname() {
-		return lastname;
+	public String getUlastname() {
+		return ulastname;
 	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setUlastname(String ulastname) {
+		this.ulastname = ulastname;
 	}
 	public String getUsername() {
 		return username;
@@ -50,31 +61,37 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getDob() {
-		return dob;
+	public String getUpassword() {
+		return upassword;
 	}
-	public void setDob(String dob) {
-		this.dob = dob;
+	public void setUpassword(String upassword) {
+		this.upassword = upassword;
 	}
-	public String getEmail() {
-		return email;
+	public String getUconfirmpassword() {
+		return uconfirmpassword;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUconfirmpassword(String uconfirmpassword) {
+		this.uconfirmpassword = uconfirmpassword;
 	}
-	public String getPassword() {
-		return password;
+	public String getUemail() {
+		return uemail;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUemail(String uemail) {
+		this.uemail = uemail;
 	}
-	public String getPhonenumber() {
-		return phonenumber;
+
+	public String getUphonenumber() {
+		return uphonenumber;
 	}
-	public void setPhonenumber(String phonenumber) {
-		this.phonenumber = phonenumber;
+	public void setUphonenumber(String uphonenumber) {
+		this.uphonenumber = uphonenumber;
 	}
-	
+	public boolean isEnabled() {
+		return isEnabled;
+	}
+	public void setEnabled(boolean isEnabled) {
+		this.isEnabled = isEnabled;
+	}
 	
 	
 	

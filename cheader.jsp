@@ -10,7 +10,7 @@
   </head>
  
 <body>
-<center><h1 style="background-color:black;color:white";>WELCOME TO PAVAN MOTORS </h1> </center>
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -22,7 +22,7 @@
         <li><a href="contact">Contactus</a></li>
         <li><a href="aboutus">Aboutus</a></li>
         
-
+        <li><a href="viewproducts">Products</a></li>
         
           <li>
         </ul>
@@ -31,7 +31,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="login1"><span class="glyphicon glyphicon-log-in"></span> login</a></li>
+      <li><a href="login1"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>

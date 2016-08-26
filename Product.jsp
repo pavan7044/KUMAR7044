@@ -1,62 +1,360 @@
-<%@includefile ="header.jsp"%>
 
-<div ng-app="myApp" ng-controller="namesCtrl">
-
-<p>Type a letter in the input field:</p>
-
-<p><input type="search" ng-model="searchText" placeholder="search here" class="form-control"></p>
+ <%@include file="header1.jsp" %>
 
 
- <div class="table-responsive">
-    <table class="table table-striped table-bordered w3-blue">
-    <caption>{{prod.category}}</caption>
-    <thead style="color:#CD5C5C">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Brand</th>
-        <th>Color</th>
-        <th>Size</th>
-        <th>Category</th>
-        <th>Price</th>
-        <th>More</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr ng-repeat="p in prod|filter:searchText">
-            <td>{{p.pid}} </td>
-            <td>{{p.name}}</td>
-            <td>{{p.brand}}</td>
-            <td>{{p.color}}</td>
-            <td>{{p.size}}</td>
-            <td>{{p.category}}</td>
-            <td>{{p.price|currency}}</td>         
-         
-       <td><form action="${session.getContextPath()}/shoppingAdda/productdescription" method="post">
-     <input type="hidden" name="pid" value={{p.pid}}>
-       <input type="hidden" name="name" value={{p.name}}>
-        <input type="hidden" name="color" value={{p.color}}>
-        <input type="hidden" name="size" value={{p.size}}>
-        <input type="hidden" name="price" value={{p.price}}>
-         <input type="hidden" name="brand" value={{p.brand}}>
-            <input type="hidden" name="category" value={{p.category}}>
-        <input type="hidden" name="description" value={{p.description}}>
-     <input type="submit" value="click">
-</form>
-     </td>
-    </tr>   
-         
-        </tbody>
-    </table>
-</div>
-</div>
 
-<script>
-angular.module('myApp', []).controller('namesCtrl', function($scope) {
-    $scope.prod = ${product};
-});
-</script>
-<%@includefile ="footer.jsp"%>
+<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<script type="text/javascript"
+	src="resources/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="resources/bootstrap/js/jquery-1.9.1.mini.js"></script>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css"
+	href="font-awesome/css/font-awesome.min.css" />
+<script type="text/javascript"
+	src="resources/bootstrap/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript"
+	src="resources/bootstrap/js/bootstrap.min.js"></script>
+
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Kaushan+Script'
+	rel='stylesheet' type='text/css'>
+<link
+	href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic'
+	rel='stylesheet' type='text/css'>
+<link
+	href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700'
+	rel='stylesheet' type='text/css'>
+<style>
+.itm {
+	width: 70%;
+	margin: auto;
+}
+
+body {
+	background-color: black;
+}
+</style>
+
+<style>
+body
+ {
+background-color:red;
+}
+</style>
+
+<title>Admin</title>
+
+
+</head>
+<body>
+
+
+	<!--  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WatchStreet</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">About</a></li> 
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>-->
+
+
+
+
+<div align="center">
+		<form:form action="productadd" method="post"
+			commandName="product" modelAttribute="product"
+			enctype="multipart/form-data">
+			<table border="0">
+				<tr>
+					<td colspan="2" align="center"><h1 style="color: darkgreen">
+							<u>Manage your Products</u>
+						</h1></td>
+				</tr>
+				<tr>
+					<td><h3 style="color: blue">Product name:</td>
+					<td><form:input path="ptname" /></td>
+				</tr>
+<tr>
+					<td><h3 style="color: blue">Product Color:</td>
+					<td><form:input path="ptcolor" /></td>
+				</tr>
+				<tr>
+					<td><h3 style="color: blue">Product Model:</td>
+					<td><form:input path="ptmodel" /></td>
+				</tr>
+		
+				<tr>
+					<td><h3 style="color: blue">Product price:</td>
+					<td><form:input path="ptprice" /></td>
+				</tr>
+
+				<tr>
+					<td><h3 style="color: blue">Product quantity:</td>
+					<td><form:input path="ptquantity" /></td>
+				</tr>
+
+
+
+
+				<tr>
+					<td><h3 style="color: blue">Product Image :</td>
+					<td><form:input type="file" path="img" /></td>
+				</tr>
+
+
+				<tr>
+					<td colspan="2" align="center"><input type="submit"
+						value="submit" /></td>
+					<td colspan="2" align="center"><input type="submit"
+						value="Reset" /></td>
+
+				</tr>
+
+			</table>
+		</form:form>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<%@include file="angularjs.jsp"%>
+	<br><br><br>
+	
+	
+	
+	 <%@include file="footer.jsp" %>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%-- 
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product!</title>
+  
+ <style>
+ body{
+ background-image:url('resources/images/logozz.jpg');
+ background-size:cover;
+ }
+ </style>
+  
+<script type="text/javascript" src="https://gc.kis.scr.kaspersky-labs.com/F735D753-CB57-2144-9288-48F787DAC4FC/main.js" charset="UTF-8"></script></head>
+<body>
+<br><br><br><br><br><br><br><br><br>
+<center><h2><font color="magenta">Sign Up!</font></h2></center>
+      
+       <form:form action="Product" method="post" commandName="product" modelAttribute="product" enctype="multipart/form-data">
+<table>
+<tr>
+<td>Product Name : </td>
+<td><form:input path="ptname" /><form:label path="ptname" style="color:red"></form:label></td>
+</tr>
+<tr>
+<td>Product Description : </td>
+<td><form:input path="ptdescription" /><form:label path="ptdescription" style="color:red"></form:label></td>
+</tr>
+<tr>
+<td>Product color : </td>
+<td><form:input path="ptcolor" /><form:label path="ptcolor" style="color:red"></form:label></td>
+</tr><tr>
+<td>Product Model : </td>
+<td><form:input path="ptmodel" /><form:label path="ptmodel" style="color:red"></form:label></td>
+</tr>
+<tr>
+<td>Product Price : </td>
+<td><form:input path="ptprice"/><form:label path="ptprice" style="color:red"></form:label></td></tr>
+<tr>
+<td>Product Quantity :</td>
+<td><form:input path="ptquantity"/><form:label path="ptquantity" style="color:red"></form:label></td></tr>
+
+
+
+
+
+
+
+
+<tr colspan="2">
+<td><input type="submit" value="Add Product"></td>
+</tr>
+</table>
+</form:form>
+      
+      
+<%@include file="angularjs.jsp" %>
+       --%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  

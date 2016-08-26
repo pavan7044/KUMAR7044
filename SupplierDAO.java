@@ -1,18 +1,19 @@
-package pavanmotor.DAO;
+package com.niit.dao;
 
 import java.util.List;
 
-import pavanmotor.Model.Supplier;
-
-
+import com.niit.model.Supplier;
 
 public interface SupplierDAO {
 	
-	public List<Supplier> list();
+	
+public List<Supplier> list();
+	
 	public Supplier get(int id);
 	
 	public void saveOrUpdate(Supplier supplier);
 	
-	public void delete (int id);
+	public void delete(int id);
+		
 
 }

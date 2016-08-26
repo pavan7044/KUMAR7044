@@ -1,11 +1,10 @@
-package com.niit.dao;
+package com.niit.service;
 
 import java.util.List;
 
 import com.niit.model.User;
 
-public interface UserDAO {
-
+public interface UserServiceDAO {
 	public List<User> list();
 
 	public User get(int uid);
@@ -17,7 +16,5 @@ public interface UserDAO {
 	public User getUserByName(String uname);
 	
     public boolean isvaliduser(String user, String pass);
-	
-	
 	
 }

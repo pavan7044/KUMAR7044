@@ -1,71 +1,70 @@
-package pavanmotor.DAO;
+/*package com.niit.dao;
 
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
-
-
-import pavanmotor.Model.Category;
+import com.niit.model.Category;
 
 
 @Repository("CategoryDAO")
-public class CategoryDAOImpl {
+public class CategoryDAOImpl implements CategoryDAO {
+
 	
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	public CategoryDAOImpl(){	}
-	
-	public CategoryDAOImpl(SessionFactory sessionFactory){
-		this.sessionFactory= sessionFactory;
-		
-	}
 
-	@Transactional
-	public void saveOrUpdate(Category category){
-		sessionFactory.getCurrentSession().saveOrUpdate(category);
-		
+	public CategoryDAOImpl(SessionFactory sessionFactory) {
+		this.sessionFactory=sessionFactory;
 	}
 	
-	@Transactional
-	public void delete(int id){
-		Category category= new Category();
-		category.setId(id);
-		sessionFactory.getCurrentSession().delete(category);
-		
-	}
 	
-	@Transactional
-	public Category get(int id){
-		String hql="from Category where id=" + "'"+ id +"'";
-		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
-		List<Category> listCategory = ( List<Category> )((CategoryDAO) query).list();
-		
 	
-	if(listCategory != null && listCategory.isEmpty()){
-		return listCategory.get(0);
-		
-	}
-	return null;
-
-}
-	@Transactional
-	public List<Category> list(){
-		@SuppressWarnings("unchecked")
-		List<Category> listCategory = (List<Category>)
-		sessionFactory.getCurrentSession()
-		
-		.createCriteria(Category.class)
-		
-		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
-		
+	public List<Category> list() {
+		@SuppressWarnings({ "unchecked" })
+		List<Category> listCategory=(List<Category>) sessionFactory.getCurrentSession()
+				                     .createCriteria(Category.class)
+				                     .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return listCategory;
 		
 	}
+
+	public Category get(int id) {
+		String hql="from where Category id=" +"'"+ id +"'";
+		Query query=(Query) sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Category> listcategory=(List<Category>)  ((Criteria) query).list();
+		
+		if(listcategory !=null && !listcategory.isEmpty()){
+			return listcategory.get(0);
+		}
+		return null;
+		
+	}
+
+	public void saveOrUpdate(Category category) {
+		Transaction t = sessionFactory.getCurrentSession().beginTransaction();
+
+		sessionFactory.getCurrentSession().saveOrUpdate(category);
+		t.commit();
+		
+	}
+
+	public void delete(int id) {
+Category category=new Category();
+		
+		sessionFactory.getCurrentSession().delete(category);
+		
+	}
+
+	
+
+	
+	
 }
+*/

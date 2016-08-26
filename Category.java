@@ -1,4 +1,4 @@
-package pavanmotor.Model;
+/*package com.niit.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,32 +9,42 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Entity
+@Component
 @Table
+
 public class Category {
 	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int Id;
-	private String name;
-	private String decription;
-	public int getId() {
-		return Id;
+	private int sid;
+	
+	private String sname;
+	private String sdecription;
+	
+	public int getSid() {
+		return sid;
 	}
-	public void setId(int id) {
-		Id = id;
+	public String getSdecription() {
+		return sdecription;
 	}
-	public String getName() {
-		return name;
+	public void setSdecription(String sdecription) {
+		this.sdecription = sdecription;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setSid(int sid) {
+		this.sid = sid;
 	}
-	public String getDecription() {
-		return decription;
+	public String getSname() {
+		return sname;
 	}
-	public void setDecription(String decription) {
-		this.decription = decription;
+	public void setSname(String sname) {
+		this.sname = sname;
 	}
+	
+	
+	
+	
 	
 
 }
+*/

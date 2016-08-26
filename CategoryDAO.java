@@ -1,16 +1,20 @@
-package pavanmotor.DAO;
+/*package com.niit.dao;
 
 import java.util.List;
 
-import pavanmotor.Model.Category;
+import com.niit.model.Category;
 
 public interface CategoryDAO {
 	
 	public List<Category> list();
+
 	public Category get(int id);
-	
+
 	public void saveOrUpdate(Category category);
+
+	public void delete(int id);
+
 	
-	public void delete (int id);
 
 }
+*/
