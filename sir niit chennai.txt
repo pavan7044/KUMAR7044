@@ -1,0 +1,65 @@
+${pagecontext.requestscope}/${var}.jpg
+
+admin/add
+admin/get
+
+/admin/**
+/user/**
+/login - access="permitAll"
+user/view
+user/addtocart
+
+
+req mapping ("/admin")
+class ctlr
+
+{
+
+add()
+
+get()
+}
+
+
+
+req mapping ("/user")
+class ctlr
+
+{
+
+add()
+
+get()
+}
+
+
+mkyong- 
+
+<sec:authorize access="ROLE_ADMIN"/>
+<a href="">edit</a>
+<a href="">delete</a>
+
+
+
+
+
+
+welcome username should come after login
+
+security logout and login has some issues
+
+image retrievel not done
+
+
+3 headers has been created
+
+when clicking viewdetails in product page - its not diplaying single product
+
+register should be implemented using web flow 
+is not storing having some error
+
+ediit and delete - view is not working
+
+webflow 
+web services not done
+validation not working
