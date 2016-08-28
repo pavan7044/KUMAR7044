@@ -1,4 +1,4 @@
-/*package com.niit.model;
+package com.niit.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,12 +18,14 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int sid;
-	
 	private String sname;
 	private String sdecription;
 	
 	public int getSid() {
 		return sid;
+	}
+	public void setSid(int sid) {
+		this.sid = sid;
 	}
 	public String getSdecription() {
 		return sdecription;
@@ -31,20 +33,13 @@ public class Category {
 	public void setSdecription(String sdecription) {
 		this.sdecription = sdecription;
 	}
-	public void setSid(int sid) {
-		this.sid = sid;
-	}
+	
 	public String getSname() {
 		return sname;
 	}
 	public void setSname(String sname) {
 		this.sname = sname;
-	}
-	
-	
-	
-	
+	}	
 	
 
 }
-*/

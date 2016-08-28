@@ -1,5 +1,6 @@
 package com.niit.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,16 +21,23 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Product {
 	
-	
+
+
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
+	
+	
 
 	private int ptid;
 	private String ptname;
 	private String ptcolor;
 	private String ptmodel;
+	
+	@Min(1)
 	private int ptprice;
+	@Min(1)
 	private int ptquantity;
 	
 	@Transient
@@ -80,24 +88,77 @@ public class Product {
 		this.ptquantity = ptquantity;
 	}
 	
-	@ManyToOne
-	@JoinColumn(name="supplier_id",nullable=false, updatable=false, insertable=false)
+
+
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="supplier_id")
 	private Supplier supplier;
 
 	public Supplier getSupplier() {
 		return supplier;
 	}
+
 	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 
 
+@ManyToOne(cascade=CascadeType.ALL)
+@JoinColumn(name="category_id")
+	private Category category;
+
+
+public Category getCategory() {
+	return category;
+}
+
+public void setCategory(Category category) {
+	this.category = category;
+}
+
+
+
+/*
+private int category_id;
+
+
+public int getCategory_id() {
+	return category_id;
+}
+
+public void setCategory_id(int category_id) {
+	this.category_id = category_id;
+}
+*/
+
+	
+	
+	/*private int supplier_id;
+
+	public int getSupplier_id() {
+		return supplier_id;
+	}
+
+	public void setSupplier_id(int supplier_id) {
+		this.supplier_id = supplier_id;
+	}
+
+	
+	*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

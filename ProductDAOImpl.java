@@ -83,6 +83,10 @@ public class ProductDAOImpl implements ProductDAO {
 	    System.out.println("deleted");
 		
 	}
+
+
+
+
 @Transactional
 	public List<Product> list() {
 		Session s = sessionfactory.getCurrentSession();

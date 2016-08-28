@@ -32,6 +32,10 @@ public class SupplierService {
 		supplierDAO.delete(id);
 	}
 	
+public Supplier getByName(String spname) {
+		
+		return supplierDAO.getByName(spname);
+	}
 	
 
 }

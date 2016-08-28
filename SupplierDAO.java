@@ -14,6 +14,12 @@ public List<Supplier> list();
 	public void saveOrUpdate(Supplier supplier);
 	
 	public void delete(int id);
+	
+	public Supplier getByName(String spname);
+
+
+
+
 		
 
 }

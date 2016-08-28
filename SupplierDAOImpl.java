@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.model.Supplier;
-@Repository("SupplierDAO")
+@Repository("supplierDAO")
 public class SupplierDAOImpl implements SupplierDAO{
 	
 	@Autowired
@@ -29,12 +29,14 @@ public class SupplierDAOImpl implements SupplierDAO{
 	
 @Transactional
 	public List<Supplier> list() {
+	Transaction t = sessionFactory.getCurrentSession().beginTransaction();
 		@SuppressWarnings("unchecked")
 		List<Supplier> listSupplier = (List<Supplier>)
 		sessionFactory.getCurrentSession()
 		.createCriteria(Supplier.class)
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
-		
+		t.commit();
+
 			return listSupplier;
 	}
 
@@ -65,7 +67,31 @@ public class SupplierDAOImpl implements SupplierDAO{
 		
 	}
 
+
+
+
+
+
+@Transactional
+public Supplier getByName(String spname) {
+
+   String hql = "from Supplier where spname=" + "'"+ spname +"'";
+
+	Query query = (Query) sessionFactory.openSession().createQuery(hql);
+	List<Supplier> listSupplier = (List<Supplier>)  query.list();
 	
+	if  (listSupplier != null && !listSupplier.isEmpty()){
+		return listSupplier.get(0);
+		
+	}
+		return null;
+}
+
+
+
 	
 	
 }
+
+
+	

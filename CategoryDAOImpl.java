@@ -1,4 +1,4 @@
-/*package com.niit.dao;
+package com.niit.dao;
 
 import java.util.List;
 
@@ -10,9 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.model.Category;
+import com.niit.model.Supplier;
 
 
-@Repository("CategoryDAO")
+@Repository("categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO {
 
 	
@@ -26,11 +27,15 @@ public class CategoryDAOImpl implements CategoryDAO {
 	
 	
 	public List<Category> list() {
+		System.out.println("in category DAO");
+		Transaction t = sessionFactory.getCurrentSession().beginTransaction();
 		@SuppressWarnings({ "unchecked" })
 		List<Category> listCategory=(List<Category>) sessionFactory.getCurrentSession()
 				                     .createCriteria(Category.class)
 				                     .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		t.commit();
 		return listCategory;
+		
 		
 	}
 
@@ -62,9 +67,25 @@ Category category=new Category();
 		
 	}
 
-	
+
+
+	public Category getByName(String sname) {
+		
+		   String hql = "from Category where sname=" + "'"+ sname +"'";
+
+			Query query = (Query) sessionFactory.openSession().createQuery(hql);
+			List<Category> listCategory = (List<Category>)  query.list();
+			
+			if  (listCategory != null && !listCategory.isEmpty()){
+				return listCategory.get(0);
+				
+			}
+		
+		
+		return null;
+	}
+
 
 	
 	
 }
-*/

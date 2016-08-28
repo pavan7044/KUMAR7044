@@ -1,8 +1,9 @@
-/*package com.niit.dao;
+package com.niit.dao;
 
 import java.util.List;
 
 import com.niit.model.Category;
+import com.niit.model.Supplier;
 
 public interface CategoryDAO {
 	
@@ -15,6 +16,7 @@ public interface CategoryDAO {
 	public void delete(int id);
 
 	
+	public Category getByName(String sname);
+
 
 }
-*/
