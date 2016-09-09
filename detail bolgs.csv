@@ -1,0 +1,7 @@
+"Column Name","Data Type","Nullable","Default","Primary Key"
+"BOLG_ID","VARCHAR2(9)","No","","1"
+"BOLG_TITLE","VARCHAR2(99)","No","",""
+"BOLG_CONTENT","VARCHAR2(99)","No","",""
+"BOLG_DESCRIPTION","VARCHAR2(999)","No","",""
+"BOLG_STATUS","VARCHAR2(99)","No","",""
+"BOLG_REASON","VARCHAR2(99)","No","",""
