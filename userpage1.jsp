@@ -1,238 +1,132 @@
-<%@includefile ="header.jsp"%>
+
+	 <%@include file="header.jsp" %>
 
 
 
-<CENTER>
-<h3 style="color:voilet;font-weight:bold";>TVS XL-SUPER</h3></CENTER>
-<div class="row">
-<div class="col-md-4">
 
 
 
-<a href="login1"><img src="resources/images/superxl/x1.jpg" alt="Cinque Terre" width="350" height="250" ></img></a></div>
 
-<div class="col-md-4">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Product Page</title>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
+<script	src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script	src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+<script>
+var app = angular.module('myApp', []);
+ 
+function MyController($scope, $http) {
 
-<a href="login1"><img src="resources/images/superxl/x2.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
+	 $scope.sortType = 'name'; // set the default sort type
+	  $scope.sortReverse = false;  // set the default sort order
+	  $scope.searchPTitle = '';
+	  
+        $scope.getDataFromServer = function() {
+                $http({
+                        method : 'GET',
+                        url : 'GsonCon'
+                }).success(function(data, status, headers, config) {
+                        $scope.prod = data;  
+                }).error(function(data, status, headers, config) {
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                });
+        };
+};
 
 
-<div class="col-md-4">
 
-<a href="login1"><img src="resources/images/superxl/x3.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
+</script>
+</head>
+<body>
 
-
-<div class="row">
-<center>
-<div class="col-md-12">
-
-<a href="login1"><img src="resources/images/superxl/x4.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
+<div class="container" ng-app="myApp" ng-controller="MyController" ng-init="getDataFromServer()">
+  
+  <form>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+        <input type="text" class="form-control" placeholder="Search Product Name" ng-model="searchPTitle">      
+       </div>      
+    </div>
+  </form>
+  
+  <table class="table table-bordered table-striped">
+    
+    <thead>
+      <tr>
+      <td>
+          <a href="#" ng-click="sortType = 'ptid'; sortReverse = !sortReverse">
+            Product Id 
+            <span ng-show="sortType == 'ptid' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'ptid' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        
+        <td>
+          <a href="#" ng-click="sortType = 'ptname'; sortReverse = !sortReverse">
+            Product Name 
+            <span ng-show="sortType == 'ptname' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'ptname' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'ptmodel'; sortReverse = !sortReverse">
+            Product Model 
+            <span ng-show="sortType == 'ptname' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'ptname' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'ptcolor'; sortReverse = !sortReverse">
+          Quantity
+            <span ng-show="sortType == 'ptquantity' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'ptquantity' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'ptprice'; sortReverse = !sortReverse">
+          Price
+            <span ng-show="sortType == 'ptprice' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'ptprice' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+       
+          <td>
+          <a href="#" ng-click="sortType = 'ptcolor'; sortReverse = !sortReverse">
+          color
+            <span ng-show="sortType == 'ptcolor' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'ptcolor' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        
+        
+        </tr>
+    </thead>
+    
+    <tbody>
+      <tr ng-repeat="p1 in prod | orderBy:sortType:sortReverse | filter:searchPTitle">
+           		<td>{{p1.ptid}}</td>
+           		<td>{{p1.ptname}}</td>
+           		<td>{{p1.ptmodel}}</td>
+           		<td>{{p1.ptquantity}}</td>
+           		<td>{{p1.ptprice}}</td>
+           		<td>{{p1.ptcolor}}</td>
+           		
+           	
+           		<td><a href="viewdetailsnormal?ptid={{p1.ptid}}">View Details</a></td>
+           		
+      </tr>
+    </tbody>
+    
+  </table>
+  
 </div>
 
-</center>
-
-
-<CENTER>
-<h3 style="color:deeppink;font-weight:bold">TVS XL 100cc</h3></CENTER>
-<div class="row">
-<div class="col-md-4">
-
-
-
-<a href="login1"><img src="resources/images/100cc/a3.png" alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-<div class="col-md-4">
-
-<a href="login1"><img src="resources/images/100cc/a4.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-
-<div class="col-md-4">
-
-<a href="login1"><img src="resources/images/100cc/a5.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-</div>
-
-<div class="row">
-<center>
-<div class="col-md-6">
-
-<a href="login1"><img src="resources/images/100cc/a1.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-
-<div class="col-md-6">
-
-<a href="login1"><img src="resources/images/100cc/a3.png" alt="Cinque Terre" width="350" height="250" > </img> </a></div>
-</div>
-
-</center>
-
-
-<CENTER>
-<h3 style="color:deeppink;font-weight:bold">TVS SCOOTY PEPT+</h3></CENTER>
-<div class="row">
-<div class="col-md-3">
-
-
-
-<a href="login1"><img src="resources/images/pept/p1.jpg" alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-<div class="col-md-3">
-
-<a href="login1"><img src="resources/images/pept/p2.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-<div class="col-md-3">
-
-<a href="login1"><img src="resources/images/pept/p3.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-
-
-<div class="col-md-3">
-
-<a href="login1"><img src="resources/images/pept/p4.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-</div>
-
-<div class="row">
-<center>
-<div class="col-md-3">
-
-<a href="login1"><img src="resources/images/pept/pp1.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-<div class="col-md-3">
-
-<a href="userjs1"><img src="resources/images/pept/pp3.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-
-<div class="col-md-3">
-
-<a href="login1"><img src="resources/images/pept/pp4.jpg" alt="Cinque Terre" width="350" height="250" > </img> </a></div>
-
-<div class="col-md-3">
-
-<a href="login1"><img src="resources/images/pept/pp5.jpg" alt="Cinque Terre" width="350" height="250" > </img> </a></div>
-</div>
-
-</center>
-
-
-<CENTER>
-<h3 style="color:deeppink;font-weight:bold">TVS ZEST</h3></CENTER>
-
-<div class="row">
-<div class="col-md-4">
-
-
-
-<a href="login1"><img src="resources/images/zzest/z0.jpg" alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-<div class="col-md-4">
-
-<a href="login1"><img src="resources/images/zzest/z1.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-
-<div class="col-md-4">
-
-<a href="login1"><img src="resources/images/zzest/z2.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-</div>
-
-<div class="row">
-<div class="col-md-4">
-
-<a href="login1"><img src="resources/images/zzest/z4.jpg" alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-<div class="col-md-4">
-
-<a href="login1"><img src="resources/images/zzest/z5.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-
-<div class="col-md-4">
-
-<a href="login1"><img src="resources/images/zzest/z6.jpg" alt="Cinque Terre" width="350" height="250" > </img> </a></div>
-</div>
-
-
-
-<CENTER>
-<h3 style="color:deeppink;font-weight:bold">TVS STAR CITY</h3></CENTER>
-
-<div class="row">
-<div class="col-md-4">
-
-
-
-<a href="login1"><img src="resources/images/starcity/s11.jpg" alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-<div class="col-md-4">
-
-<a href="login1"><img src="resources/images/starcity/s12.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-
-<div class="col-md-4">
-
-<a href="login1"><img src="resources/images/starcity/s13.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-</div>
-
-<div class="row">
-<div class="col-md-4">
-
-<a href="login1"><img src="resources/images/starcity/s3.jpg" alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-<div class="col-md-4">
-
-<a href="login1"><img src="resources/images/starcity/s2.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-
-<div class="col-md-4">
-
-<a href="login1"><img src="resources/images/starcity/s3.jpg" alt="Cinque Terre" width="350" height="250" > </img> </a></div>
-</div>
-
-
-
-
-<CENTER>
-<h3 style="color:deeppink;font-weight:bold">APACHE 180R</h3></CENTER>
-<div class="row">
-<div class="col-md-4">
-
-
-
-<a href="login1"><img src="resources/images/apache/aa4.jpg" alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-<div class="col-md-4">
-
-<a href="login1"><img src="resources/images/apache/aa5.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-
-<div class="col-md-4">
-
-<a href="login1"><img src="resources/images/apache/aa6.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-</div>
-
-<div class="row">
-<center>
-<div class="col-md-6">
-
-<a href="login1"><img src="resources/images/apache/aa2.jpg"  alt="Cinque Terre" width="350" height="250" ></img></a></div>
-
-
-<div class="col-md-6">
-
-<a href="login1"><img src="resources/images/apache/aa3.jpg" alt="Cinque Terre" width="350" height="250" > </img> </a></div>
-</div>
-
-</center>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%@includefile ="footer.jsp"%>
+	 <%@include file="footer.jsp" %>
