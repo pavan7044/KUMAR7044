@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+class Odd{
+public static void main(String args[]){
+int a,b;
+System.out.println("enter a number");
+Scanner sc= new Scanner(System.in);
+a=sc.nextInt();
+b=a%2;
+if(b!=0){
+System.out.println("odd number");
+}
+else
+System.out.println("not odd number");
+}
+}

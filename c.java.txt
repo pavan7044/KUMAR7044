@@ -1,0 +1,13 @@
+public class C
+{
+public static void main(String a[])
+{
+int a=0;
+while(a<=200)
+{
+System.out.println("numbers are "+a);
+a++;
+}
+}
+
+}

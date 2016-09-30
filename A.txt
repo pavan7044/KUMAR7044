@@ -1,0 +1,15 @@
+import java.util.io.*;
+
+public class A{
+
+public static void main(String args[])
+{
+int a;
+
+for(a=0;a<100,a++)
+{
+System.out.println("haiiii v "+a);
+}
+}
+}
+

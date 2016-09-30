@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+class Name{
+public static void main(String ar[]){
+int a=0,b;
+System.out.println("enter a number ");
+Scanner sc= new Scanner(System.in);
+b=sc.nextInt();
+// while(a<=b)
+//{
+//System.out.println("haiii pavan");
+//a++;
+//}
+
+}
+}
+
+
