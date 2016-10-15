@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Blog Page</title>
+<title>Forum Page</title>
+
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
 
 
@@ -30,24 +31,34 @@
 
 
 
+
+
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
 <script	src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script	src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
 <script>
+
+
+
+
+
+
 var app = angular.module('myApp', []);
  
 function MyController($scope, $http) {
 
 	 $scope.sortType = 'name'; // set the default sort type
 	  $scope.sortReverse = false;  // set the default sort order
-	  $scope.searchBTitle = '';
+	  $scope.searchFTitle = '';
 	  
         $scope.getDataFromServer = function() {
                 $http({
                         method : 'GET',
-                        url : 'GsonCon'
+                        url : 'GsonCon1'
                 }).success(function(data, status, headers, config) {
-                        $scope.blog = data;  
+                        $scope.forum = data;  
                 }).error(function(data, status, headers, config) {
                         // called asynchronously if an error occurs
                         // or server returns response with an error status.
@@ -67,7 +78,7 @@ function MyController($scope, $http) {
     <div class="form-group">
       <div class="input-group">
         <div class="input-group-addon"><i class="fa fa-search"></i></div>
-        <input type="text" class="form-control" placeholder="Search Blog Name" ng-model="searchBTitle">      
+        <input type="text" class="form-control" placeholder="Search Forum Name" ng-model="searchFTitle">      
        </div>      
     </div>
   </form>
@@ -77,28 +88,35 @@ function MyController($scope, $http) {
     <thead>
       <tr>
       <td>
-          <a href="#" ng-click="sortType = 'bid'; sortReverse = !sortReverse">
-            Blog Id 
-            <span ng-show="sortType == 'bid' && !sortReverse" class="fa fa-caret-down"></span>
-            <span ng-show="sortType == 'bid' && sortReverse" class="fa fa-caret-up"></span>
+          <a href="#" ng-click="sortType = 'fid'; sortReverse = !sortReverse">
+            Post Id 
+            <span ng-show="sortType == 'fid' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'fid' && sortReverse" class="fa fa-caret-up"></span>
           </a>
         </td>
         
         <td>
-          <a href="#" ng-click="sortType = 'blogtitle'; sortReverse = !sortReverse">
-            Blog Name 
-            <span ng-show="sortType == 'blogtitle' && !sortReverse" class="fa fa-caret-down"></span>
-            <span ng-show="sortType == 'blogtitle' && sortReverse" class="fa fa-caret-up"></span>
+          <a href="#" ng-click="sortType = 'ftitle'; sortReverse = !sortReverse">
+           Forum Title 
+            <span ng-show="sortType == 'ftitle' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'ftitle' && sortReverse" class="fa fa-caret-up"></span>
           </a>
         </td>
         <td>
-          <a href="#" ng-click="sortType = 'bcontent'; sortReverse = !sortReverse">
+          <a href="#" ng-click="sortType = 'fcontent'; sortReverse = !sortReverse">
           Content 
-            <span ng-show="sortType == 'bcontent' && !sortReverse" class="fa fa-caret-down"></span>
-            <span ng-show="sortType == 'bcontent' && sortReverse" class="fa fa-caret-up"></span>
+            <span ng-show="sortType == 'fcontent' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'fcontent' && sortReverse" class="fa fa-caret-up"></span>
           </a>
         </td>
         
+         <td>
+          <a href="#" ng-click="sortType = 'fstatus'; sortReverse = !sortReverse">
+          Status 
+            <span ng-show="sortType == 'fstatus' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'fstatus' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
         
         
         <td>
@@ -108,24 +126,33 @@ function MyController($scope, $http) {
             <span ng-show="sortType == 'username' && sortReverse" class="fa fa-caret-up"></span>
           </a>
         </td>
+         <td>
+          <a href="#" ng-click="sortType = 'category'; sortReverse = !sortReverse">
+          Category
+            <span ng-show="sortType == 'category' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'category' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        
         <td>
-          <a href="#" ng-click="sortType = 'blogcreationdate'; sortReverse = !sortReverse">
+          <a href="#" ng-click="sortType = 'fcreationdate'; sortReverse = !sortReverse">
           Creation Date
-            <span ng-show="sortType == 'blogcreationdate' && !sortReverse" class="fa fa-caret-down"></span>
-            <span ng-show="sortType == 'blogcreationdate' && sortReverse" class="fa fa-caret-up"></span>
+            <span ng-show="sortType == 'fcreationdate' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'fcreationdate' && sortReverse" class="fa fa-caret-up"></span>
           </a>
         </td>
         </tr>
     </thead>
     
     <tbody>
-      <tr ng-repeat="b1 in blog | orderBy:sortType:sortReverse | filter:searchBTitle">
-           		<td>{{b1.bid}}</td>
-           		<td>{{b1.blogtitle}}</td>
-           		<td>{{b1.bcontent}}</td>
-           	
-           		<td>{{b1.username}}</td>
-           		<td>{{b1.blogcreationdate}}</td>
+      <tr ng-repeat="f1 in forum | orderBy:sortType:sortReverse | filter:searchFTitle">
+           		<td>{{f1.fid}}</td>
+           		<td>{{f1.ftitle}}</td>
+           		<td>{{f1.fstatus}}</td>
+           		<td>{{f1.fcontent}}</td>
+           		<td>{{f1.username}}</td>
+           		<td>{{f1.category}}</td>
+           		<td>{{f1.fcreationdate}}</td>
            	
       </tr>
     </tbody>
@@ -133,6 +160,4 @@ function MyController($scope, $http) {
   </table>
   
 </div>
-
-</body>
-</html>
+<%@ include file="footer.jsp" %>

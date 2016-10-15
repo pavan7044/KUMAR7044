@@ -1,4 +1,4 @@
-package com.niit.model;
+package com.niit.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,94 +6,163 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 @Entity
 @Component
 @Table
 public class User {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	
-		@Id	
-		@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int uid;
-		@NotEmpty(message="first name cannot be empty")
-    private String ufirstname;
-		@NotEmpty(message="last name cannot be empty")
-	private String ulastname;
-		@NotEmpty(message="username cannot be empty")
-	private String username;
-		@NotEmpty(message="password cannot be empty")
-	private String upassword;
-		@NotEmpty(message="confirm password cannot be empty")
-	transient private String uconfirmpassword;
-		@NotEmpty(message="Email cannot be empty")
-	private String uemail;
-	
-		@NotEmpty(message="phone number cannot be empty")
-	private String uphonenumber;
-    
+private int userid;
 
-    @Column(name="enabled")
-    private boolean isEnabled;
-	public int getUid() {
-		return uid;
-	}
-	public void setUid(int uid) {
-		this.uid = uid;
-	}
-	public String getUfirstname() {
-		return ufirstname;
-	}
-	public void setUfirstname(String ufirstname) {
-		this.ufirstname = ufirstname;
-	}
-	public String getUlastname() {
-		return ulastname;
-	}
-	public void setUlastname(String ulastname) {
-		this.ulastname = ulastname;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getUpassword() {
-		return upassword;
-	}
-	public void setUpassword(String upassword) {
-		this.upassword = upassword;
-	}
-	public String getUconfirmpassword() {
-		return uconfirmpassword;
-	}
-	public void setUconfirmpassword(String uconfirmpassword) {
-		this.uconfirmpassword = uconfirmpassword;
-	}
-	public String getUemail() {
-		return uemail;
-	}
-	public void setUemail(String uemail) {
-		this.uemail = uemail;
-	}
+@NotEmpty(message="user id is not empty")
+private String Username;
 
-	public String getUphonenumber() {
-		return uphonenumber;
-	}
-	public void setUphonenumber(String uphonenumber) {
-		this.uphonenumber = uphonenumber;
-	}
-	public boolean isEnabled() {
-		return isEnabled;
-	}
-	public void setEnabled(boolean isEnabled) {
-		this.isEnabled = isEnabled;
-	}
-	
-	
-	
+@NotEmpty(message="Email id is not empty")
+private String email;
+
+@NotEmpty(message="Password id is not empty")
+private String password;
+
+
+private String authority;
+
+
+private String role;
+
+@NotEmpty(message="Address is not empty")
+private String Address;
+
+@NotEmpty(message="Phone number is not empty")
+private String phno;
+
+@Column(name="enabled")
+private boolean isEnabled;
+
+private boolean isAdmin;
+
+
+public boolean isAdmin() {
+	return isAdmin;
+}
+
+public void setAdmin(boolean isAdmin) {
+	this.isAdmin = isAdmin;
+}
+
+@Transient
+private MultipartFile img;
+
+@NotEmpty(message="Location is not empty")
+private String location;
+
+public int getUserid() {
+	return userid;
+}
+
+public void setUserid(int userid) {
+	this.userid = userid;
+}
+
+public String getUsername() {
+	return Username;
+}
+
+public void setUsername(String username) {
+	Username = username;
+}
+
+public String getEmail() {
+	return email;
+}
+
+public void setEmail(String email) {
+	this.email = email;
+}
+
+public String getPassword() {
+	return password;
+}
+
+public void setPassword(String password) {
+	this.password = password;
+}
+
+public String getRole() {
+	return role;
+}
+
+public void setRole(String role) {
+	this.role = role;
+}
+
+public String getAddress() {
+	return Address;
+}
+
+public void setAddress(String address) {
+	Address = address;
+}
+
+public String getPhno() {
+	return phno;
+}
+
+public void setPhno(String phno) {
+	this.phno = phno;
+}
+
+public boolean isEnabled() {
+	return isEnabled;
+}
+
+public void setEnabled(boolean isEnabled) {
+	this.isEnabled = isEnabled;
+}
+
+
+
+public MultipartFile getImg() {
+	return img;
+}
+
+public void setImg(MultipartFile img) {
+	this.img = img;
+}
+
+public String getLocation() {
+	return location;
+}
+
+public void setLocation(String location) {
+	this.location = location;
+}
+
+public String getAuthority() {
+	return authority;
+}
+
+public void setAuthority(String authority) {
+	this.authority = authority;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

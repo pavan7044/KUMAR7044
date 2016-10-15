@@ -1,14 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
+
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-	http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd 
+	http://www.springframework.org/schema/tx 
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<context:annotation-config />
-	
+		
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 	
 		<property name="dataSource" ref="dataSource" />
@@ -22,28 +25,33 @@
 					time, otherwise table created again and again -->
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.show_sql">true</prop>
+				
 			</props>
 		</property>
+	
 		<property name="annotatedClasses">
 			<list>
-				<value>com.niit.model.User</value>
-				
+			<!-- <value>com.niit</value> -->
+				<value>com.niit.Model.User</value>
+				<value>com.niit.Controller.Etorocontroller</value>
+				<value>com.niit.DAO.UserDAOImpl</value>
 			</list>
 		</property>
 
 		<property name="packagesToScan">
 			<list>
 			<value>com.niit</value>
-			<value>com.niit.model</value>
-			<value>com.niit.controller</value>
-		
-			</list>
+			<value>com.niit.Model</value>
+			<value>com.niit.Controller</value>
+			<value>com.niit.DAO</value> 
+	</list>
 		</property>
+
 
 	</bean>
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="org.h2.Driver" />
-		<property name="url" value="jdbc:h2:tcp://localhost/~/DTD" />
+		<property name="url" value="jdbc:h2:tcp://localhost/~/DTD9" />
 		<property name="username" value="sa" />
 		<property name="password" value="" />
 	</bean>
@@ -53,6 +61,5 @@
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-<tx:annotation-driven transaction-manager="transactionManager"/> 
-
+<tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>

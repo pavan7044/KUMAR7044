@@ -1,7 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ include file="header.jsp" %>
+     
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<body>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>E-TORO</title>
 
-<a href="Tvscaursol">haiii raja</a>
-<h2>Hello World!</h2>
-</body>
-</html>
+<center>
+
+<a href="chat"><img src="resources/images/chat.jpg"></a> 
+<a href="blog"><img src="resources/images/Blog.png"></a> 
+<a href="fom"><img src="resources/images/forum.jpg"></a> 
+
+<!-- <a href="wall">Wall</a>
+<a href="Chat">chat</a> -->
+</center>
+
+
+
+
+
+	<br>	<br>	<br>	<br>	<br>	<br>	<br>
+	    <%@ include file="footer.jsp" %>
+	
+	
