@@ -168,7 +168,7 @@ public class Etorocontroller {
 		     else 
 		     {
 		    	 
-		    	 return "login";
+		    	 return "index";
 		    	 
 		    	// session.setAttribute("Administrator", "true");
 	/*	    	 model.addAttribute("product",  new Product());

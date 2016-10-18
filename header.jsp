@@ -66,7 +66,7 @@
 <marquee behavior="alternate">
 
 
-<h2 style="color:#900C3F;font-family:MV Boli";>E-TORO E-TORO E-TORO </h2></marquee>
+<h2 style="color:#900C3F;font-family:MV Boli";>Mahesh  P@V@N  Chandu</h2></marquee>
 
 
 

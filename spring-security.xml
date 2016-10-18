@@ -21,18 +21,18 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 			access="hasRole('ROLE_ADMIN')" />
 			<security:intercept-url pattern="/getchat/**"
 			access="hasRole('ROLE_ADMIN')" />
-			
+			<security:intercept-url pattern="/index/**"
+			access="hasRole('ROLE_ADMIN')" />
 			<security:intercept-url pattern="/blog/**"
 			access="hasRole('ROLE_USER')" />
 		<security:intercept-url pattern="/fom/**"
 			access="hasRole('ROLE_USER')" />
 			<security:intercept-url pattern="/getchat/**"
 			access="hasRole('ROLE_USER')" />
+				<security:intercept-url pattern="/index/**"
+			access="hasRole('ROLE_USER')" />
 	
 	
-
-
-
 		<security:form-login login-page="/login"
 			default-target-url="/" login-processing-url="/perform_login"
 			authentication-failure-url="/login"

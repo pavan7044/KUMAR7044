@@ -7,10 +7,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>E-TORO</title>
+<style>
+body
+
+ {
+    background-image:url(resources/images/aa.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+    
+}
+</style>
+
 
 <center>
 
-<a href="chat"><img src="resources/images/chat.jpg"></a> 
+<a href="getchat"><img src="resources/images/chat.jpg"></a> 
 <a href="blog"><img src="resources/images/Blog.png"></a> 
 <a href="fom"><img src="resources/images/forum.jpg"></a> 
 

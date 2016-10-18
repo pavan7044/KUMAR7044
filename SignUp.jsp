@@ -10,12 +10,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sign Up</title>
 
-</head>
-<body>
+<style>
+body
+
+ {
+    background-image:url(resources/images/a.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+    
+}
+</style>
+
 <center>
     <div class="form-container">
 
-    <h1 style="color:blue";>Registration Form</h1>
+    <h1 style="color:blue";>Enter Your Credentials</h1>
      
     <form:form method="POST" commandName="user" class="form-horizontal" action="register" enctype="multipart/form-data">
  

@@ -8,12 +8,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>LOGIN PAGE</title>
- <link rel="stylesheet" href="<c:url value="/resources/bootstrap-3.3.6-dist/css/bootstrap.min.css"/>">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="<c:url value="/resources/bootstrap-3.3.6-dist/js/bootstrap.min.js" />"></script>
+<style>
+body
 
-</head>
-<body>
+ {
+    background-image:url(resources/images/aaa.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+    
+}
+</style>
+
 <!-- 
 <table><tr><td>
  ${msg}
